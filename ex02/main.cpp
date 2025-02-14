@@ -5,6 +5,16 @@
 
 int main()
 {
+
+    // const Animal* meta = new Animal();
+    // const Animal* i = new Dog;
+    // const Animal* j = new Cat;
+    // std::cout << j->getType() << " " << std::endl;
+    // std::cout << i->getType() << " " << std::endl;
+    // i->makeSound(); 
+    // j->makeSound();
+    // meta->makeSound();
+
     Animal *tab[20];
     for (int i = 0; i < 10; i++)
     {
