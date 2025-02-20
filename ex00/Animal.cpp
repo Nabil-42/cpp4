@@ -9,11 +9,12 @@ Animal::Animal()
 Animal::Animal(const std::string& type)
 {
     _type = type;
-    std::cout << "Constructeur Animal check !" << std::endl;
+    std::cout << "Constructeur string Animal check !" << std::endl;
 }
 
 Animal::Animal(const Animal& copie)
 {
+    std::cout << "Constructeur copie Animal check !" << std::endl;
     _type = copie._type;
 }
 

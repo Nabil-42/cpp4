@@ -9,14 +9,14 @@ Cat::Cat() : Animal("Cat")
 
 Cat::Cat(const std::string& type) : Animal(type)
 {
-    _type = type;
-    std::cout << "Constructeurcheck !" << std::endl;
+    std::cout << "Constructeur CAT string check !" << std::endl;
 }
 
-Cat::Cat(const Cat& copie)
+Cat::Cat(const Cat& copie) : Animal(copie)
 {
-    _type = copie._type;
+    std::cout << "Constructeur CAT copie check !" << std::endl;
 }
+
 Cat& Cat::operator=(const Cat& other)
 {
     if (this != &other)

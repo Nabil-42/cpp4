@@ -16,6 +16,7 @@ Brain::Brain(const Brain& copie)
 {
     _type = copie._type;
 }
+
 Brain& Brain::operator=(const Brain& other)
 {
     if (this != &other)

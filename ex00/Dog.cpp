@@ -7,16 +7,16 @@ Dog::Dog() : Animal("Dog")
     std::cout << "Simple constructeur Dog check !" << std::endl;
 }
 
-Dog::Dog(const std::string& type)
+Dog::Dog(const std::string& type) : Animal(type)
 {
-    _type = type;
-    std::cout << "Constructeurcheck !" << std::endl;
+    std::cout << "Constructeur DOG string check !" << std::endl;
 }
 
-Dog::Dog(const Dog& copie)
+Dog::Dog(const Dog& copie) : Animal(copie)
 {
-    _type = copie._type;
+    std::cout << "Constructeur DOG copie check !" << std::endl;
 }
+
 Dog& Dog::operator=(const Dog& other)
 {
     if (this != &other)

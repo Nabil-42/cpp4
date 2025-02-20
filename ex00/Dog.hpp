@@ -9,7 +9,6 @@ class Dog : public Animal
     private:
 
     protected :
-    std::string _type;
 
     public:
     Dog();

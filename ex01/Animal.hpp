@@ -2,6 +2,7 @@
 #define ANIMAL
 
 #include <iostream>
+#include "Brain.hpp"
 
 
 class Animal 

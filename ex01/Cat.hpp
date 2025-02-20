@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "Animal.hpp"
-#include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -11,7 +10,6 @@ class Cat : public Animal
     Brain *cerveau;
 
     protected :
-    std::string _type;
 
     public:
     Cat();
@@ -24,4 +22,3 @@ class Cat : public Animal
 };
 
 #endif
-

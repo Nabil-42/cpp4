@@ -1,31 +1,31 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
-#include "Brain.hpp"
 
 Cat::Cat() : Animal("Cat")
 {
     cerveau = new Brain;
-     _type = "Cat";
     std::cout << "Simple constructeur Cat check !" << std::endl;
 }
 
 Cat::Cat(const std::string& type) : Animal(type)
 {
     cerveau = new Brain;
-    _type = type;
-    std::cout << "Constructeurcheck !" << std::endl;
+    std::cout << "Constructeur CAT string check !" << std::endl;
 }
 
 Cat::Cat(const Cat& copie) : Animal(copie)
 {
-    cerveau = copie.cerveau;
-    _type = copie._type;
+    cerveau = new Brain(*copie.cerveau);
+    std::cout << "Constructeur CAT copie check !" << std::endl;
 }
+
 Cat& Cat::operator=(const Cat& other)
 {
     if (this != &other)
     {   
-        cerveau = other.cerveau;
+        if (cerveau)
+            delete cerveau;
+        cerveau = new Brain(*other.cerveau);
         _type = other._type;
         std::cout << "Constructeur Cat operator check !" << std::endl;
     }
@@ -34,8 +34,9 @@ Cat& Cat::operator=(const Cat& other)
 
 Cat::~Cat()
 {
-    std::cout << "Destructor Cat check !" << std::endl;
-    delete(cerveau);
+        if (cerveau)
+            delete cerveau;
+        std::cout << "Destructor Cat check !" << std::endl;
 }
 
 void Cat::makeSound() const

@@ -4,27 +4,28 @@
 Dog::Dog() : Animal("Dog")
 {
     cerveau = new Brain;
-    _type = "Dog";
     std::cout << "Simple constructeur Dog check !" << std::endl;
 }
 
-Dog::Dog(const std::string& type) : Animal("Dog")
+Dog::Dog(const std::string& type) : Animal(type)
 {
     cerveau = new Brain;
-    _type = type;
-    std::cout << "Constructeurcheck !" << std::endl;
+    std::cout << "Constructeur DOG string check !" << std::endl;
 }
 
 Dog::Dog(const Dog& copie) : Animal(copie)
 {
-    cerveau = copie.cerveau;
-    _type = copie._type;
+    cerveau = new Brain(*copie.cerveau);
+    std::cout << "Constructeur DOG copie check !" << std::endl;
 }
+
 Dog& Dog::operator=(const Dog& other)
 {
     if (this != &other)
     {   
-        cerveau = other.cerveau;
+        if (cerveau)
+            delete cerveau;
+        cerveau = new Brain(*other.cerveau);
         _type = other._type;
         std::cout << "Constructeur Dog operator check !" << std::endl;
     }
@@ -33,8 +34,9 @@ Dog& Dog::operator=(const Dog& other)
 
 Dog::~Dog()
 {
-    std::cout << "Destructor Dog check !" << std::endl;
-    delete(cerveau);
+        if (cerveau)
+            delete cerveau;
+        std::cout << "Destructor Dog check !" << std::endl;
 }
 
 void Dog::makeSound() const
